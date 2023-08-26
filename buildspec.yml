@@ -1,0 +1,18 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18
+    commands:
+      - node -v
+  build:
+    commands:
+      - echo Build started on `date`
+      - npm ci --legacy-peer-deps
+      - npm run build
+      - echo build successfully completed
+artifacts:
+  files:
+    - '**/*'
+  discard-paths: no
+  base-directory: build
